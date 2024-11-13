@@ -1,0 +1,25 @@
+query ($keyword:String!) {
+    search(query:$keyword, type:REPOSITORY, first:20) {
+        nodes {
+            ... on Repository {
+                id
+                name
+                nameWithOwner
+                description
+                primaryLanguage {
+                  id
+                  name
+                  color
+                }
+                stargazerCount
+                url
+                owner {
+                    id
+                    login
+                    avatarUrl(size:200)
+                }
+            }
+        }
+    }
+}
+
